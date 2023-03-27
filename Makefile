@@ -4,6 +4,7 @@ PYTEST = $(PYTHON) -m pytest
 PIP    = $(PYTHON) -m pip
 
 VENV   = $(CURDIR)/.venv
+ACTIVATE = . $(VENV)/bin/activate
 
 PYTEST_FLAGS = -v
 
