@@ -26,7 +26,7 @@ def read_file(input_file):
 
 
 def main():
-    parser = argparse.ArgumentParser(exit_on_error=False)
+    parser = argparse.ArgumentParser()
     parser.add_argument("file", help="the config file to be changed")
     parser.add_argument("release", nargs="?",
                         help="the part of the release to be increased")
