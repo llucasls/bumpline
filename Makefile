@@ -8,7 +8,7 @@ ACTIVATE = . $(VENV)/bin/activate
 
 PYTEST_FLAGS = -v
 
-COVERAGE_DIR = bare_estate/
+COVERAGE_DIR = bumpline/
 
 build:
 	$(PYTHON) -m build
