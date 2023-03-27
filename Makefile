@@ -28,16 +28,14 @@ clean: | dist
 install: $(VENV)
 
 $(VENV): dev_requirements.txt
-	if test ! -d $(VENV); then \
-		$(PYTHON) -m venv $(VENV); \
-	fi
+	$(PYTHON) -m venv $(VENV)
 	$(ACTIVATE) && $(PIP) install -r dev_requirements.txt
 	touch $(VENV)
 
-test: $(VENV)
+test: | $(VENV)
 	$(ACTIVATE) && $(PYTEST) $(PYTEST_FLAGS) $(PYTEST_FILES)
 
-coverage: $(VENV)
+coverage: | $(VENV)
 	$(ACTIVATE) && $(PYTEST) --cov=$(COVERAGE_DIR) tests/ 2> /dev/null
 	if test -f .coverage; then rm .coverage; fi
 
