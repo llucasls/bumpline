@@ -16,6 +16,9 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: POSIX",
 ]
+dependencies = [
+    "toml",
+]
 
 [project.scripts]
 bumpline = "bumpline.cli:main"
