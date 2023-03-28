@@ -5,6 +5,7 @@ services:
     build:
       context: .
       args:
+        - PYTHON_IMAGE=${PYTHON_IMAGE:-python}
         - PYTHON_VERSION=${PYTHON_VERSION:-latest}
     container_name: test
     restart: "no"
