@@ -10,6 +10,9 @@ PYTEST_FLAGS = -v
 
 COVERAGE_DIR = bumpline/
 
+PYTHON_IMAGE   = python
+PYTHON_VERSION = latest
+
 build:
 	$(PYTHON) -m build
 
@@ -38,5 +41,23 @@ test: | $(VENV)
 coverage: | $(VENV)
 	$(ACTIVATE) && $(PYTEST) --cov=$(COVERAGE_DIR) tests/ 2> /dev/null
 	if test -f .coverage; then rm .coverage; fi
+
+clean_image:
+	if test -n "$$(docker container ls -a -f name=test -q)"; then \
+		docker-compose down; \
+	fi
+	if test -n "$$(docker image ls -f reference=bumpline-test -q)"; then \
+		docker image rm bumpline-test; \
+	fi
+
+test_container: clean_image
+	PYTHON_IMAGE=$(PYTHON_IMAGE); export PYTHON_IMAGE; \
+	PYTHON_VERSION=$(PYTHON_VERSION); export PYTHON_VERSION; \
+	if test -t 1; then \
+		docker-compose up --exit-code-from test; \
+	else \
+		docker-compose -f no-tty.yml up --exit-code-from test; \
+	fi
+	docker-compose down
 
 .PHONY: build check publish clean install test coverage
