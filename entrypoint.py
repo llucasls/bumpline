@@ -47,7 +47,7 @@ def write_test_to_tty():
 
 def write_test_to_file():
     command = sp.run(["make", "test"], stdout=sp.PIPE)
-    print(command.stdout.decode("UTF-8"))
+    print(command.stdout.decode("UTF-8").strip())
     print(get_python_version())
     return command.returncode
 
