@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "bumpline"
 version = "0.1"
 authors = [
-  { name="Lucas L. S. Haine", email="lucaslshaine@gmail.com" },
+    { name="Lucas L. S. Haine", email="lucaslshaine@gmail.com" },
 ]
 description = "Manage your python project more easily"
 readme = "README.md"
