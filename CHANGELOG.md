@@ -1,3 +1,9 @@
+## 0.3.0 - 2023-03-28
+
+### Fixed
+
+- Removed unnecessary files from package build.
+
 ## 0.2.0 - 2023-03-28
 
 ### Fixed
