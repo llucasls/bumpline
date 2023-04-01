@@ -5,7 +5,10 @@ import argparse
 
 import toml
 
-from version import Version
+try:
+    from version import Version
+except ImportError:
+    from bumpline.version import Version
 
 
 class Release(argparse.Namespace):
