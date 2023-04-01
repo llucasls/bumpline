@@ -1,3 +1,9 @@
+## 0.4.0 - 2023-04-01
+
+### Fixed
+
+- Changed import so it will work in production.
+
 ## 0.3.0 - 2023-03-28
 
 ### Fixed
