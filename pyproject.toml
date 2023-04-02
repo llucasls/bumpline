@@ -9,6 +9,7 @@ exclude = [
     "*.yml",
     "Dockerfile",
     "Makefile",
+    "*.mk",
     "dev_requirements.txt",
     ".?*",
 ]
