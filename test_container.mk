@@ -23,6 +23,6 @@ clean:
 
 .PHONY: test clean
 
-#.SILENT:
+.SILENT:
 
 .ONESHELL:
