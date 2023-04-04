@@ -1,4 +1,5 @@
 PYTHON = python3
+BUILD  = $(PYTHON) -m build
 TWINE  = $(PYTHON) -m twine
 PYTEST = $(PYTHON) -m pytest
 PIP    = $(PYTHON) -m pip
@@ -11,7 +12,7 @@ PYTEST_FLAGS = -v
 COVERAGE_DIR = bumpline/
 
 build:
-	$(PYTHON) -m build
+	$(BUILD)
 
 check: | dist
 	$(TWINE) check dist/*
