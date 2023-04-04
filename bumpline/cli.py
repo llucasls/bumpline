@@ -42,6 +42,11 @@ def main():
     group.add_argument("-c", "--rc", action="store_const", const="rc",
                        help="label the new version as a release candidate")
 
+    parser.add_argument("-d", "--dev", action="store_true",
+                        help="label the new version as a development release")
+    parser.add_argument("-D", "--no-dev", action="store_true",
+                        help="remove development release label")
+
     args = Release(parser.parse_args())
 
     input_file = args.file
