@@ -46,3 +46,5 @@ test_container:
 	@$(MAKE) --file=test_container.mk test
 
 .PHONY: build check publish clean install test coverage
+
+.SILENT: test coverage $(VENV)
