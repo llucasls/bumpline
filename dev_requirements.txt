@@ -1,3 +1,5 @@
 toml
 pytest
 pytest-cov
+pytest-mock
+pytest-mocha
