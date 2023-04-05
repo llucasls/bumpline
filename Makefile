@@ -7,7 +7,7 @@ PIP    = $(PYTHON) -m pip
 VENV   = $(CURDIR)/.venv
 ACTIVATE = . $(VENV)/bin/activate
 
-PYTEST_FLAGS = -v
+PYTEST_FLAGS = --verbose --mocha
 
 COVERAGE_DIR = bumpline/
 
