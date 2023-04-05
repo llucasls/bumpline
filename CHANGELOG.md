@@ -1,3 +1,9 @@
+## 0.5.0 - 2023-04-05
+
+### Added
+
+- Added support for development releases through the -d and -D flags.
+
 ## 0.4.0 - 2023-04-01
 
 ### Fixed
