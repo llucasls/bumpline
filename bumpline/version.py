@@ -209,6 +209,22 @@ class Version:
         self._pre_letter = pre_letter
         self._pre_number = pre_number
 
+    def add_dev(self):
+        if self.string.find(".dev") == -1:
+            self.string += ".dev"
+        else:
+            index = self.string.find(".dev") + 4
+            version = self.string[:index]
+            dev_number_str = self.string[index:]
+            dev_number = int(dev_number_str) if dev_number_str != "" else 0
+            dev_number += 1
+
+            self.string = f"{version}{dev_number}"
+
+    def remove_dev(self):
+        if self.string.find(".dev") != -1:
+            self.string = self.string.replace(".dev", "")
+
     @property
     def release(self):
         "return version release as a string"

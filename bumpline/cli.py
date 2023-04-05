@@ -16,6 +16,8 @@ class Release(argparse.Namespace):
         self.file = args.file
         self.release = args.release
         self.pre_release = args.alpha or args.beta or args.rc
+        self.dev = args.dev
+        self.no_dev = args.no_dev
 
 
 def read_file(input_file):
@@ -72,6 +74,11 @@ def main():
         version.add_beta()
     elif args.pre_release == "rc":
         version.add_rc()
+
+    if args.dev:
+        version.add_dev()
+    elif args.no_dev:
+        version.remove_dev()
 
     content[version_index] = toml.dumps({"version": str(version)})
 
