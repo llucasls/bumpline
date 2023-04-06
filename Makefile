@@ -12,7 +12,7 @@ PYTEST_FLAGS = --verbose --mocha
 COVERAGE_DIR = bumpline/
 
 build:
-	$(BUILD)
+	$(BUILD) $(BUILD_FLAGS)
 
 check: | dist
 	$(TWINE) check dist/*
