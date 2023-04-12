@@ -8,12 +8,14 @@ BUMP = "bumpline/cli.py"
 
 
 def test_error_when_no_arguments_are_given():
+    "should error when no arguments are given"
     result = sp.run([BUMP], stdout=sp.PIPE, stderr=sp.PIPE)
 
     assert result.returncode == 2
 
 
 def test_dont_change_version_when_release_isnt_given():
+    "should not do anything when release isn’t provided"
     with tmp.NamedTemporaryFile() as tmp_file:
         with open(tmp_file.name, "w") as file:
             file.write('[project]\nversion = "1.5"\n')

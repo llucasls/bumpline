@@ -8,9 +8,12 @@ BUMP = "bumpline/cli.py"
 
 
 class TestIncreaseMinor:
+    "Release :: Increase Minor"
     tmp_file = tmp.NamedTemporaryFile()
 
     def test_with_major(self):
+        """test with major version ::
+        should return previous major and minor + 1"""
         with open(self.tmp_file.name, "w") as file:
             file.write('[project]\nversion = "1"\n')
 
@@ -20,6 +23,8 @@ class TestIncreaseMinor:
         assert version == "1.1"
 
     def test_with_minor(self):
+        """test with minor version ::
+        should return previous major and minor + 1"""
         with open(self.tmp_file.name, "w") as file:
             file.write('[project]\nversion = "1.5"\n')
 
@@ -29,6 +34,8 @@ class TestIncreaseMinor:
         assert version == "1.6"
 
     def test_with_micro(self):
+        """test with micro version ::
+        should return previous major, minor + 1 and micro = 0"""
         with open(self.tmp_file.name, "w") as file:
             file.write('[project]\nversion = "1.5.2"\n')
 

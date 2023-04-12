@@ -8,6 +8,7 @@ BUMP = "bumpline/cli.py"
 
 
 class TestMarkAsDev:
+    "Mark As Development Release"
     tmp_file = tmp.NamedTemporaryFile()
 
     def test_add_dev(self):
