@@ -46,10 +46,17 @@ def write_test_to_tty():
 
 
 def write_test_to_file():
-    command = sp.run(["make", "test"], stdout=sp.PIPE)
-    print(command.stdout.decode("UTF-8").strip())
-    print(get_python_version())
-    return command.returncode
+    with sp.Popen(["make", "test", "PYTEST_FLAGS=-v --mocha --color=no"],
+                  stdout=sp.PIPE) as process:
+        stdout, stderr = process.communicate()
+        output = (stdout.decode("utf-8")
+                  .replace("\x1b[31m", "")
+                  .replace("\x1b[32m", "")
+                  .replace("\x1b[0m", "")
+                  .strip())
+        print(output)
+
+        return process.returncode
 
 
 def main():
