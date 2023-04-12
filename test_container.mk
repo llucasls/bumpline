@@ -7,7 +7,7 @@ test: clean
 	if test -t 1; then
 		printf "\n\n"
 		echo "$(PYTHON_IMAGE):$(PYTHON_VERSION)"
-		#docker-compose up --exit-code-from test
+		docker-compose up --exit-code-from test
 	else
 		docker-compose -f no-tty.yml up --exit-code-from test
 	fi
